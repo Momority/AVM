@@ -1,10 +1,13 @@
-def unique(array):
-    return len(set(array)) == len(array)
+def twoSum(nums, target):
+    prev_map = {}
 
-array1 = [1, 2 ,3 ,4]
-array2 = [1, 2, 2, 3]
-array3 = []
+    for i, n in enumerate(nums):
+        diff = target - n
+        if diff in prev_map:
+            return [prev_map[diff], i]
+        prev_map[n] = i
 
-print(unique(array1))
-print(unique(array2))
-print(unique(array3))
+    return []
+
+print(twoSum([2, 7, 11, 15], 9))  # [0, 1]
+print(twoSum([3, 2, 4], 6))       # [1, 2]
